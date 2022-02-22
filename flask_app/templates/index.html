@@ -1,3 +1,4 @@
+<!-- Standard Registration and Login page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,7 @@
 </head>
 <body>
     <div class="container">
+        <!-- Gets and displays any messages associated with users out of session trying to access restricted pages -->
         {% with messages = get_flashed_messages(category_filter=['bad_user']) %}
             {% if messages %}
                 <div class="row">
@@ -20,8 +22,9 @@
                     </div>
                 </div>
             {% endif %}
-        {% endwith %}
-        <div class="row">
+            {% endwith %}
+            <div class="row">
+            <!-- Registraion form with validation for char len and email (both format and exsistance). PW validation and min pw len is currently commented out -->
             <div class="col-6">
                 <form action="/create" class="bg-dark mx-auto text-light p-5 rounded mt-5" style="width:30em;" method="post">
                     <div class="form-row">
@@ -70,6 +73,7 @@
                     <button class="btn btn-primary mt-4">Register</button>
                 </form>
             </div>
+            <!-- Login form. Validates against PW and email, has a generic warning if either fail -->
             <div class="col-6">
                 <form action="/login" class="bg-dark mx-auto text-light p-5 rounded mt-5" style="width:30em;" method="post">
                     <div class="form-row">

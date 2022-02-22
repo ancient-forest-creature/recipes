@@ -62,7 +62,6 @@ class Recipe:
                 return
             messages.append(cls(message))
         return messages
-
     
     @classmethod
     def create(cls, data):
@@ -87,12 +86,12 @@ class Recipe:
     def validate_recipe(msg):
         is_valid = True
         if len(msg["name"]) < 3:
-            flash("name is too short. Must be at least 3 characters", "send_msg")
+            flash("name is too short. Must be at least 3 characters", "recipe_err")
             is_valid=False
         if len(msg["description"]) < 3:
-            flash("description is too short. Must be at least 3 characters", "send_msg")
+            flash("description is too short. Must be at least 3 characters", "recipe_err")
             is_valid=False
         if len(msg["instruction"]) < 3:
-            flash("instruction is too short. Must be at least 3 characters", "send_msg")
+            flash("instruction is too short. Must be at least 3 characters", "recipe_err")
             is_valid=False
         return is_valid
